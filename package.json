@@ -1,8 +1,8 @@
 {
-  "name": "a01-meilinru-webserver",
-  "version": "0.0.1",
-  "description": "This package contains a very simple web server that takes one argument for port and then serves any files inside the public directory.",
-  "main": "server.js",
+  "name": "webserver-by-meilin",
+  "version": "1.0.0",
+  "description": "Building a webserver in Node.js for COMP426",
+  "main": "index.js",
   "scripts": {
     "test": "node server.js --port=5555"
   },
@@ -20,7 +20,7 @@
     "http"
   ],
   "author": "meilinru",
-  "license": "GPL-3.0-or-later",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/comp426-2023-spring/a01-meilinru/issues"
   },
