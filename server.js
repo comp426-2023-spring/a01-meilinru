@@ -1,18 +1,19 @@
 const http = require('http');
 var fs = require('fs');
 var min = require('minimist')  
-var args = min(process.argv.slice(2));
-const port = (args.port || 3000);
-try {
-	const data = fs.readFileSync('./public/index.html', 'utf8');
-	const server = http.createServer((req, res) => {
-			res.statusCode = 200;
-			res.setHeader('Content-Type', 'text/html');
-			res.end(data);	
-			});
-	server.listen(port, () => {
-			console.log('Server listening on port ${port}');
-			});
-} catch (err) {
-	console.error(err);
-}
+const args = min(process.argv.slice(2));
+const port = args['port'] || 3000;
+var data_copy;
+fs.readFile('./public/index.html', 'utf8', (err, data) => {
+		if (err) {
+		console.err(err);
+		return;
+		}
+		data_copy= data;
+		})	
+const server = http.createServer((req, res) => {	
+		res.writeHeader(200, {'Content-Type': 'text/html'});
+		res.end(data_copy);	
+		})
+server.listen(port);
+console.log('Server listening on port ${port}');
