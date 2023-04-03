@@ -1,4 +1,4 @@
-const http = require('http');
+var http = require('http');
 var fs = require('fs');
 var min = require('minimist')  
 const args = min(process.argv.slice(2));
@@ -6,7 +6,7 @@ const port = args['port'] || 3000;
 var data_copy;
 fs.readFile('./public/index.html', 'utf8', (err, data) => {
 		if (err) {
-		console.err(err);
+		console.error(err);
 		return;
 		}
 		data_copy= data;
