@@ -1,6 +1,6 @@
 const http = require('http');
 var fs = require('fs');
-var min = require('minimist')  
+var min = require('minimist');
 let args = min(process.argv.slice(2), {
 		default: {
 port: 8080
